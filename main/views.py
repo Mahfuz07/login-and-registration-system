@@ -32,7 +32,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {username}.")
+                messages.success(request, f"You are now logged in as {username}.")
                 # return redirect("main:homepage.html")
                 return render(request, 'main/homepage.html')
             else:
@@ -45,6 +45,6 @@ def login_request(request):
 
 def logout_request(request):
     logout(request)
-    messages.info(request, "You have successfully logged out.")
+    messages.success(request, "You have successfully logged out.")
     # return redirect("main:homepage")
     return render(request, 'main/homepage.html')

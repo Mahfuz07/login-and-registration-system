@@ -52,6 +52,19 @@
 </div>
 
 <div class="container-fluid">
+    {% if messages %}
+			{% for message in messages %}
+				{% if message.tags == 'success' %}
+					<div class="alert alert-success" role="alert">
+						<span>{{message}}</span>
+					</div>
+				{% elif message.tags == 'error' %}
+					<div class="alert alert-danger" role="alert">
+						<span>{{message}}</span>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 <main role="main" class="container">
       <div class="jumbotron">
         <h1>Navbar example</h1>
